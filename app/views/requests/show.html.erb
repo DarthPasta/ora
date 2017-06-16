@@ -1,0 +1,11 @@
+<%= link_to "Home", root_path %>
+<%= link_to "Back", requests_path %>
+<h1>This is the show page for <%= @request.user.email %></h1>
+
+
+<p>Title : <%= @request.title %></p>
+<p>Ora Coins Reward : <%= @request.token %> Ora Coins</p>
+<p>Category : <%= @request.request_category %></p>
+<p>Description : <%= @request.request_description %></p>
+<p>Created at <%= time_ago_in_words(@request.created_at) %> ago</p>
+

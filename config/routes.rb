@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'users/show/:id' => 'users#show', as: 'profile_page'
 
   resources :offers
-
+  resources :requests
 end

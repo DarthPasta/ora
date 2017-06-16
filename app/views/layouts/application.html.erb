@@ -20,7 +20,7 @@
        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-   
+
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Latest compiled and minified CSS -->
@@ -28,10 +28,14 @@
   </head>
 
   <body>
-
-
-
-
+<div><%= link_to "[ Home ]", root_path %></div>
+	<% if signed_in? %>
+		<div><%= link_to "[ Make a New Offer ]", new_offer_path %><%= link_to "[ Offers Index ]", offers_path %></div> <!-- This is just a test if the link works -->
+		<div><%= link_to "[ Make a New Request ]", new_request_path %><%= link_to "[ Requests Index ]", requests_path %></div>  <!-- This is just a test if the link works -->
+		<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+	<% else %>
+		<div><%= link_to "[ Login ]", new_user_session_path %><%= link_to "[ Sign Up ]", new_user_registration_path %></div>
+	<% end %>
 
     <%= yield %>
 

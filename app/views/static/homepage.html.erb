@@ -1,7 +1,5 @@
 <h1>This is the Homepage</h1>
 
-<%= link_to "Signup", new_user_registration_path %>
-
 <!-- Show New User, limit 5 -->
 <% @users.each do |user| %>
 	<ul>
@@ -11,8 +9,6 @@
 		<li><%= user.email %></li>
 	</ul>
 <% end %>
-
-
 
 <% @offers.each do |offer| %>
 	<ul>
