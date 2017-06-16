@@ -8,6 +8,7 @@
 <%= link_to "Delete", offer_path(offer), method: :delete, data: { confirm: 'Are you sure?' } %>
 <p><%= link_to "Title : #{offer.title}", offer_path(offer) %></p>
 <p>Ora Coins Asking : <%= offer.token %> Ora Coins</p>
+<%= link_to "Coinbase", user_coinbase_omniauth_authorize_path %>
 <p>Category : <%= offer.offer_category %></p>
 <p>Description : <%= offer.offer_description %></p>
 <p>Created at <%= time_ago_in_words(offer.created_at) %> ago</p>

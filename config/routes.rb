@@ -11,6 +11,13 @@ Rails.application.routes.draw do
   	resources :engagements 
   end
 
+  get 'braintree/new'
+  post 'braintree/checkout'
+
+  get 'coinbase/new'
+  post 'coinbase/checkout'
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
   resources :offers
   resources :requests
 

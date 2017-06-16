@@ -27,9 +27,22 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
-gem 'omniauth-facebook'
+
 gem 'faker'
 gem 'carrierwave', '~> 1.0'
+
+gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'fog'
+
+gem 'mini_magick'
+gem 'braintree'
+gem 'sidekiq'
+
+gem 'coinbase'
+gem 'omniauth-coinbase'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
