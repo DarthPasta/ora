@@ -1,0 +1,9 @@
+<h1>Create New Ora Request here</h1>
+<%= link_to "Home", root_path %>
+<p></p>
+<%= form_for @request do |form| %>
+	<%= render partial: '/requests/form', object: form %>
+
+  <%= form.submit %>
+<% end %>
+

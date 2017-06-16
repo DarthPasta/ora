@@ -1,0 +1,10 @@
+<%= link_to "Home", root_path %>
+
+<h1>Update your Ora Request here</h1>
+<p>Current Request Information</p>
+
+<%= form_for @request do |form| %>
+	<%= render partial: '/requests/form', object: form %>
+
+  <%= form.submit %>
+<% end %>
