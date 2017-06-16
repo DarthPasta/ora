@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 <header>
@@ -84,3 +85,31 @@ Join thousands in our talent-exchanging community.</p>
             </div>
         </div>
     </section>
+=======
+<h1>This is the Homepage</h1>
+
+<!-- Show New User, limit 5 -->
+<% @users.each do |user| %>
+	<ul>
+		<li><%= link_to profile_page_path(user.id) do %>
+			<%= image_tag "seed_avatar.png" %>
+			<% end %></li>
+		<li><%= user.email %></li>
+	</ul>
+<% end %>
+
+<% @offers.each do |offer| %>
+	<ul>
+		<li><%=link_to offer_path(offer.id) do %>
+		<%= image_tag "seed_picture.jpg" %></li>
+		<% end %>
+		<li>Title: <%= offer.title %></li>
+		<li>Description: <%= offer.offer_description %></li>
+		<li>Category: <%= offer.offer_category %></li>
+		<li>Token: <%= offer.token %></li>
+		<li>Photo: <%= offer.photo %></li>
+		<li>Email: <%= offer.user.email if offer.user %></li>
+		<li>Created at: <%= offer.created_at %></li>
+	</ul>
+<% end %>
+>>>>>>> master

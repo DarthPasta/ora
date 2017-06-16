@@ -2,9 +2,6 @@
 <p>Avatar: <%= image_tag "seed_avatar.png" %></p>
 
 <p>Email: <%= @user.email %></p>
-
-<%# if current_user.id == params[:id].to_i %>
-<%#= link_to "Edit", edit_user_registration_path %>
-<%# end #%>
+<p>Joined <%= Time.now.day - @user.created_at.day %> days ago</p>
 
 <%= link_to "Back", root_path %>

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616025327) do
+ActiveRecord::Schema.define(version: 20170616082012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "engagements", force: :cascade do |t|
+    t.text "engagement_description"
+    t.bigint "user_id"
+    t.integer "request_id"
+    t.integer "offer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["offer_id"], name: "index_engagements_on_offer_id"
+    t.index ["request_id"], name: "index_engagements_on_request_id"
+    t.index ["user_id"], name: "index_engagements_on_user_id"
+  end
 
   create_table "offers", force: :cascade do |t|
     t.string "title"
@@ -55,10 +67,23 @@ ActiveRecord::Schema.define(version: 20170616025327) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.string "location"
+    t.integer "token"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "gender"
+    t.date "birthday"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "engagements", "offers"
+  add_foreign_key "engagements", "requests"
+  add_foreign_key "engagements", "users"
   add_foreign_key "offers", "users"
   add_foreign_key "requests", "users"
 end
