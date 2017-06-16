@@ -7,6 +7,7 @@
 <%= link_to "Delete", request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %>
 <p><%= link_to "Title : #{request.title}", request_path(request) %></p>
 <p>Ora Coins Reward : <%= request.token %> Ora Coins</p>
+<%= link_to "Coinbase", "/auth/coinbase" %>
 <p>Category : <%= request.request_category %></p>
 <p>Description : <%= request.request_description %></p>
 <p>Created at <%= time_ago_in_words(request.created_at) %> ago</p>
