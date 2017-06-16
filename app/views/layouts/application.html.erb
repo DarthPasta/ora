@@ -11,6 +11,7 @@
   <body>
 <div><%= link_to "[ Home ]", root_path %></div>
 	<% if signed_in? %>
+    <div><%= link_to "Edit Profile", edit_user_registration_path %></div> 
 		<div><%= link_to "[ Make a New Offer ]", new_offer_path %><%= link_to "[ Offers Index ]", offers_path %></div> <!-- This is just a test if the link works -->
 		<div><%= link_to "[ Make a New Request ]", new_request_path %><%= link_to "[ Requests Index ]", requests_path %></div>  <!-- This is just a test if the link works -->
 		<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
