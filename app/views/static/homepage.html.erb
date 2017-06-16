@@ -12,7 +12,9 @@
 
 <% @offers.each do |offer| %>
 	<ul>
-		<li><%=link_to image_tag "seed_picture.jpg" %></li>
+		<li><%=link_to offer_path(offer.id) do %>
+		<%= image_tag "seed_picture.jpg" %></li>
+		<% end %>
 		<li>Title: <%= offer.title %></li>
 		<li>Description: <%= offer.offer_description %></li>
 		<li>Category: <%= offer.offer_category %></li>
