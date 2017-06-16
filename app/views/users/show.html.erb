@@ -3,9 +3,8 @@
 
 <p>Email: <%= @user.email %></p>
 
-<% if current_user.id == params[:id].to_i %>
-<%= link_to "Edit", edit_user_registration_path %>
-<% end %>
+<%# if current_user.id == params[:id].to_i %>
+<%#= link_to "Edit", edit_user_registration_path %>
+<%# end #%>
 
 <%= link_to "Back", root_path %>
-
