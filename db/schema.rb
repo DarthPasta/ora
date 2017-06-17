@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616121252) do
+ActiveRecord::Schema.define(version: 20170617095448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id", "receiver_id"], name: "index_conversations_on_author_id_and_receiver_id", unique: true
+  end
 
   create_table "engagements", force: :cascade do |t|
     t.text "engagement_description"
@@ -38,6 +46,16 @@ ActiveRecord::Schema.define(version: 20170616121252) do
     t.datetime "updated_at", null: false
     t.json "images"
     t.index ["user_id"], name: "index_offers_on_user_id"
+  end
+
+  create_table "personal_messages", force: :cascade do |t|
+    t.text "body"
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_personal_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_personal_messages_on_user_id"
   end
 
   create_table "requests", force: :cascade do |t|
@@ -86,5 +104,7 @@ ActiveRecord::Schema.define(version: 20170616121252) do
   add_foreign_key "engagements", "requests"
   add_foreign_key "engagements", "users"
   add_foreign_key "offers", "users"
+  add_foreign_key "personal_messages", "conversations"
+  add_foreign_key "personal_messages", "users"
   add_foreign_key "requests", "users"
 end
