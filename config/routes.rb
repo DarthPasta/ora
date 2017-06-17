@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :offers
   resources :requests
 
+  get '/conversations' => "conversations#index"
 end
