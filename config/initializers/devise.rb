@@ -253,6 +253,8 @@ Devise.setup do |config|
   config.omniauth :facebook, '755208927989838
 ', '87badaeeaa058daafc06d8521c894fef', callback_url: 'http://localhost:3000/users/auth/facebook/callback'
 
+  config.omniauth :coinbase, ENV['COINBASE_API_KEY'], ENV['COINBASE_API_SECRET'], callback_url: 'http://localhost:3000/users/auth/coinbase/callback'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

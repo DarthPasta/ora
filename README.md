@@ -15,7 +15,7 @@ code n code.........
 $ git add .
 $ git commit -m "xxx"
 
-$git checkout master
+$git checkout mastergit
 
 $ git pull origin master # i update my local master branch with online(remote) master branch
 $ git checkout frontend

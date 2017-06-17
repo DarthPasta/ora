@@ -135,7 +135,7 @@
                                 <div class="author">
                                      <a href="#">
 
-<%= image_tag "seed_avatar.png", {:class => "avatar border-gray"} %>
+<%= image_tag @user.avatar_url.to_s, {:class => "avatar border-gray"} %>
                                       <h4 class="title"><%= current_user.username %> <br />
                                          <small><%= current_user.email %></small>
                                       </h4>
