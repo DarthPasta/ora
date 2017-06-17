@@ -1,3 +1,94 @@
+
+
+<header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">#1 Barter System for Skills</h1>
+                <hr>
+                <p>Do what you love, get what you need<br/>
+Join thousands in our talent-exchanging community.</p>
+
+<form role="form" action="register.php" method="post" enctype="plain">
+               <input type="text" class="subscribe-input" placeholder="What skills do you want..." required>
+               <button class='btn btn-conf btn-green' type="submit">Exchange now</button>
+             </form>
+
+            </div>
+        </div>
+    </header>
+
+
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">At Your Service</h2>
+                    <hr class="primary">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
+                        <h3>Sturdy Templates</h3>
+                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
+                        <h3>Ready to Ship</h3>
+                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
+                        <h3>Up to Date</h3>
+                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
+                        <h3>Made with Love</h3>
+                        <p class="text-muted">You have to make your websites with love these days!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="no-padding" id="portfolio">
+        <div class="container-fluid">
+
+            <div class="row no-gutter popup-gallery">
+							<div class="col-lg-12 text-center">
+									<h2 class="section-heading">New Users</h2>
+									<hr class="primary"><br/>
+							</div>
+
+
+							<% @users.each do |user| %>
+							<div class="col-sm-4 col-md-2 text-center">
+                      <%= link_to profile_page_path(user.id) do %><%= image_tag user.avatar_url.to_s,{:class=>'img-circle img-responsive img-center'} %>	<% end %>
+                        <div class="portfolio-box-caption">
+                            <div class="portfolio-box-caption-content">
+                                <div class="project-category text-faded">
+                                    Category
+                                </div>
+                                <div class="project-name">
+																	<%= user.email %><br/>
+																	Joined <%= Time.now.day - user.created_at.day %> days ago
+                                </div>
+                </div></div>
+							</div>
+										<% end %>
+            </div>
+        </div>
+    </section>
 <h1>This is the Homepage</h1>
 
 <!-- Show New User, limit 5 -->
