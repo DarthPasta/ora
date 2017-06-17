@@ -11,6 +11,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
       <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
+          <!--     Fonts and icons     -->
+      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Latest compiled and minified CSS -->
@@ -27,68 +30,137 @@
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand page-scroll">
-
-              <%= image_tag ('ora-logo.png'),{:class=>'header-logo'} %>
+                  <%= image_tag ('ora-logo.png'), {:class=> 'header-logo'} %>
 
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <% if signed_in? %>
                 <ul class="nav navbar-nav navbar-right">
+
                     <li>
-                        <a class="page-scroll" href="#about">How it works</a>
+                      <%= link_to "All Offers", offers_path %>
+                    </li>
+                    <li>  <%= link_to "Make a Offer", new_offer_path %></li>
+                    <li>
+                        <%= link_to "All Requests", requests_path %>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Skills</a>
+                      <%= link_to "Make a New Request", new_request_path %>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Leaderboard</a>
                     </li>
 
-                <li>
-                  <%= link_to '<span class="glyphicon glyphicon-log-in"></span>'.html_safe, new_user_registration_path %>
 
+
+                    <li>
+      <%= link_to '<i class="fa fa-user fa-lg"></i>'.html_safe, profile_page_path(current_user.id) %>
+                    </li>
+
+                    <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-globe fa-lg"></i>
+                                    <span class="notification hidden-sm hidden-xs">5</span>
+                  <p class="hidden-lg hidden-md">
+                    5 Notifications
+                    <b class="caret"></b>
+                  </p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Notification 1</a></li>
+                                <li><a href="#">Notification 2</a></li>
+                                <li><a href="#">Notification 3</a></li>
+                                <li><a href="#">Notification 4</a></li>
+                                <li><a href="#">Another notification</a></li>
+                              </ul>
+                        </li>
+
+                <li>
+  <%= link_to '<i class="fa fa-sign-out fa-lg"></i>'.html_safe, destroy_user_session_path, method: :delete %>
                 </li>
+
                 </ul>
+                <% else %>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a class="page-scroll" href="#about">How it works</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#services">Skills</a>
+                  </li>
+                  <li>
+                      <a class="page-scroll" href="#portfolio">Leaderboard</a>
+                  </li>
+              <li>
+                  <%= link_to '<i class="fa fa-sign-in fa-lg"></i>'.html_safe, new_user_registration_path %>
+
+              </li>
+              </ul>
             </div>
+            <% end %>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
 
-  <body>
-<div><%= link_to "[ Home ]", root_path %></div>
-	<% if signed_in? %>
-		<div><%= link_to "[ Make a New Offer ]", new_offer_path %><%= link_to "[ Offers Index ]", offers_path %></div> <!-- This is just a test if the link works -->
-		<div><%= link_to "[ Make a New Request ]", new_request_path %><%= link_to "[ Requests Index ]", requests_path %></div>  <!-- This is just a test if the link works -->
-		<%= button_to "Sign out", destroy_user_session_path, method: :delete %>
-	<% else %>
-		<div><%= link_to "[ Login ]", new_user_session_path %><%= link_to "[ Sign Up ]", new_user_registration_path %></div>
-	<% end %>
-
+  </body>
 
     <%= yield %>
 
-  </body>
 
-  <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
-                    <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+<br/>
+
+  <footer class="footer-bs">
+        <div class="row">
+        	<div class="col-md-3 footer-brand animated fadeInLeft">
+            	<h2>Logo</h2>
+                <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+                <p>© 2014 BS3 UI Kit, All rights reserved</p>
+            </div>
+        	<div class="col-md-4 footer-nav animated fadeInUp">
+            	<h4>Menu —</h4>
+            	<div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Nature</a></li>
+                        <li><a href="#">Explores</a></li>
+                        <li><a href="#">Science</a></li>
+                        <li><a href="#">Advice</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
                 </div>
             </div>
+        	<div class="col-md-2 footer-social animated fadeInDown">
+            	<h4>Follow Us</h4>
+            	<ul>
+                	<li><a href="#">Facebook</a></li>
+                	<li><a href="#">Twitter</a></li>
+                	<li><a href="#">Instagram</a></li>
+                	<li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+        	<div class="col-md-3 footer-ns animated fadeInRight">
+            	<h4>Newsletter</h4>
+                <p>A rover wearing a fuzzy suit doesn’t alarm the real penguins</p>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div><!-- /input-group -->
+                 </p>
+            </div>
         </div>
-    </section>
+    </footer>
 
 </html>
