@@ -4,7 +4,7 @@
 <% @users.each do |user| %>
 	<ul>
 		<li><%= link_to profile_page_path(user.id) do %>
-			<%= image_tag "seed_avatar.png" %>
+		<%= image_tag user.avatar_url.to_s %>
 			<% end %></li>
 		<li><%= user.email %></li>
 	</ul>

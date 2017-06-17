@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :offers
   has_many :requests
 
+  mount_uploader :avatar, AvatarUploader
+
 def self.new_with_session(params, session)
   super.tap do |user|
     if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

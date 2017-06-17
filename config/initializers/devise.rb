@@ -250,8 +250,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-#   config.omniauth :facebook, '755208927989838
-# ', '87badaeeaa058daafc06d8521c894fef', callback_url: 'http://localhost:3000/users/auth/facebook/callback'
+  config.omniauth :facebook, '755208927989838
+', '87badaeeaa058daafc06d8521c894fef', callback_url: 'http://localhost:3000/users/auth/facebook/callback'
 
   config.omniauth :coinbase, ENV['COINBASE_API_KEY'], ENV['COINBASE_API_SECRET'], callback_url: 'http://localhost:3000/users/auth/coinbase/callback'
 
