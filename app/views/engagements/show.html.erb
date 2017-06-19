@@ -1,0 +1,16 @@
+<h1>This is the show page for engagement</h1>
+
+
+
+<%= link_to "Home", root_path %>
+
+<h2>This is the show page for <%= @engagement.user.email %></h2>
+
+<p><%= link_to "Give a Review", new_engagement_review_path(@engagement) %></p>
+
+<h3>Reviews</h3>
+<% @engagement.reviews.each do |r|%>
+	<div><%= r.description %></div>
+<% end %>
+
+
