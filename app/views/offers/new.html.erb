@@ -1,9 +1,26 @@
-<h1>Create New Ora Offer here</h1>
-<%= link_to "Home", root_path %>
-<p></p>
-<%= form_for @offer do |form| %>
-	<%= render partial: '/offers/form', object: form %>
+<div class="form_image">
 
+	<br/>
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix"><center>
+				<h1>Create new ora offer here</h1>
+</center>
+			</div>
+
+		</section><!-- #page-title end -->
+<!--
+<form id="form" class="topBefore"> -->
+
+<%= form_for @offer, :html => {:id => "form", :class => "topBefore"} do |form| %>
+	<%= render partial: '/offers/form', object: form %>
+<br/><br/>
   <%= form.submit %>
 <% end %>
 
+<!-- </form> -->
+
+ </div>

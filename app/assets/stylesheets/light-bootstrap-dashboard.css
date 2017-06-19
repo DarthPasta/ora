@@ -187,6 +187,7 @@ input:focus {
 body > .navbar-collapse {
   position: absolute;
   top: 0;
+    padding-top: 70px;
   bottom: 0;
   left: 0;
   width: 260px;
@@ -213,6 +214,7 @@ body > .navbar-collapse {
   .sidebar .sidebar-background,
   body > .navbar-collapse .sidebar-background {
     position: absolute;
+
     z-index: 1;
     height: 100%;
     width: 100%;
@@ -1546,9 +1548,12 @@ body > .navbar-collapse {
 
 .card {
   border-radius: 4px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
+  border-color: #c5c5c5;
   background-color: #FFFFFF;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  height: 485px;
+   }
+
   .card .image {
     width: 100%;
     overflow: hidden;
@@ -1662,6 +1667,7 @@ body > .navbar-collapse {
       padding-left: 65px; }
 
 .card-user .image {
+
   height: 110px; }
 .card-user .image-plain {
   height: 0;
@@ -1681,6 +1687,9 @@ body > .navbar-collapse {
 .card-user .title {
   line-height: 24px; }
 .card-user .content {
+  border-style: solid;
+border-width: 0.01px;
+border-color: #ededed;
   min-height: 240px; }
 
 .card-user .footer,

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :coinbase]
   has_many :offers
   has_many :requests
+  has_many :engagements
 
   mount_uploader :avatar, AvatarUploader
 

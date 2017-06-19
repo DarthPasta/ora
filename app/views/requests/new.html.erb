@@ -1,9 +1,22 @@
-<h1>Create New Ora Request here</h1>
-<%= link_to "Home", root_path %>
-<p></p>
-<%= form_for @request do |form| %>
+<div class="form_image">
+
+	<br/>
+
+<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+
+			<div class="container clearfix"><center>
+				<h1>Create your request here</h1>
+</center>
+			</div>
+
+		</section><!-- #page-title end -->
+
+<%= form_for @request, :html => {:id => "form", :class => "topBefore"} do |form| %>
 	<%= render partial: '/requests/form', object: form %>
 
   <%= form.submit %>
 <% end %>
 
+</div>

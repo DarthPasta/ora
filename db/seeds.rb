@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ActiveRecord::Base.transaction do
-	50.times do 
+	50.times do
 		User.create(
 			:email => Faker::Internet.email,
 			:password => Faker::Name.name
@@ -16,7 +16,7 @@ ActiveRecord::Base.transaction do
 	50.times do
 		images_array = ["seed_picture.jpg"]
 		category_array = ["Design & Art", "Beauty", "Wellness & Fitness", "Food & Beverages", "Business", "Experiences", "Programming", "Pets", "Home Improvement", "Hobbies"]
-		
+
 		Offer.create(
 			:title => Faker::LordOfTheRings.character,
 			:offer_description => Faker::ChuckNorris.fact,
