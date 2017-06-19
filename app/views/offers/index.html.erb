@@ -1,19 +1,114 @@
-<%= link_to "Home", root_path %><br>
-<%= link_to "Create a new offer", new_offer_path %>
-
-<h1>My Offers</h1>
 
 
+<%#= link_to "Home", root_path %><br>
+<%#= link_to "Create a new offer", new_offer_path %>
+
+<%#= link_to "Edit Offer", edit_offer_path(offer) %>
+<%#= link_to '<i class="fa fa-trash-o fa-lg">   delete</i>'.html_safe, offer_path(offer), :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+
+<%#= link_to "Coinbase", user_coinbase_omniauth_authorize_path %>
+<!-- <p>Category : <%#= offer.offer_category %></p>
+<p>Description : <%#= offer.offer_description %></p>
+<p>Created at <%#= time_ago_in_words(offer.created_at) %> ago</p>
+
+
+
+
+
+
+
+    <!-- Page Title
+    		============================================= -->
+    		<section id="page-title">
+
+    			<div class="container clearfix"><center>
+    				<h1>All Offers</h1>
+    				<span>Showcase of All Offered Services</span>
+</center>
+    			</div>
+
+    		</section><!-- #page-title end -->
+
+    		<!-- Content
+    		============================================= -->
+    		<section id="content">
+
+    			<div class="content-wrap">
+
+
+
+    					<!-- Post Content
+    					============================================= -->
+    					<div class="postcontent nobottommargin">
+
+                <!-- Sidebar
+      					============================================= -->
+
+      						<div class="sidebar-widgets-wrap">
+
+      							<div class="widget widget-filter-links clearfix">
+
+      								<h4>Select Category</h4>
+      								<ul class="custom-filter" data-container="#shop" data-active-class="active-filter">
+      									<li class="widget-filter-reset active-filter"><a href="#" data-filter="*">Clear</a></li>
+      									<li><a href="#" data-filter=".sf-dress">Art</a></li>
+      									<li><a href="#" data-filter=".sf-tshirt">Travel</a></li>
+      									<li><a href="#" data-filter=".sf-pant">HomeImprovements</a></li>
+      									<li><a href="#" data-filter=".sf-sunglass">Learning</a></li>
+      									<li><a href="#" data-filter=".sf-shoes">Language</a></li>
+      									<li><a href="#" data-filter=".sf-watch">Petandkids</a></li>
+      								</ul>
+
+<br/>
+      								<h4>Sort By</h4>
+      								<ul class="shop-sorting">
+
+      									<li><a href="#" data-sort-by="name">Name</a></li>
+      									<li><a href="#" data-sort-by="price_lh">Popularity</a></li>
+      									<li><a href="#" data-sort-by="price_hl">Latest</a></li>
+      								</ul>
+<br/>
+<a href="<%= new_offer_path %> " class="btn btn-success">Create your own service</a>
+	</div>
+      					</div><!-- .sidebar end -->
+
+    						<!-- Shop
+    						============================================= -->
+    						<div id="shop" class="shop product-3 grid-container clearfix">
 <% @offers.each do |offer| %>
-<%= link_to "Edit Offer", edit_offer_path(offer) %>
-<%= link_to '<i class="fa fa-trash-o fa-lg">   delete</i>'.html_safe, offer_path(offer), :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+    							<div class="product sf-dress clearfix">
+    								<div class="product-image">
+    									<%= image_tag(offer.photo.url)%>
+    									<!-- <div class="sale-flash"></div> -->
+    									<div class="product-overlay">
+    										<div class ="overlay-top"> <%= offer.offer_description %></div>
+    										<div class ="overlay-bottom"> <%= offer.user.username %></div>
+    									</div>
+    								</div>
+    								<div class="product-desc center">
+    									<div class="product-title"><a href="/offers/<%=offer.id %>"><%= offer.title %></a></div>
+    									<div class="product-price"><%= offer.token %>  <%= image_tag('ora-coin.png', height:'20px')%> / unit</div>
+    									<div class="product-rating">
+    										<i class="fa fa-star"></i>
+    										<i class="fa fa-star"></i>
+    										<i class="fa fa-star"></i>
+    										<i class="fa fa-star"></i>
+    										<i class="fa fa-star"></i>
+    									</div>
+                    <div class="product-price"><small><%= rand(20..300) %> reviews</small></div>
+    								</div>
+    							</div>
+                            <% end %>
 
-<p><%= link_to "Title : #{offer.title}", offer_path(offer) %></p>
-<p>Ora Coins Asking : <%= offer.token %> Ora Coins</p>
-<%= link_to "Coinbase", user_coinbase_omniauth_authorize_path %>
-<p>Category : <%= offer.offer_category %></p>
-<p>Description : <%= offer.offer_description %></p>
-<p>Created at <%= time_ago_in_words(offer.created_at) %> ago</p>
-<p>--------------------------------------------------------------</p>
+    							</div>
+	                </div>
 
-<% end %>
+
+
+
+
+
+    			</div>
+
+    		</section><!-- #content end -->

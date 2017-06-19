@@ -1,24 +1,32 @@
 <div class="text-field">
-	<%= form.label :Title %>
-	<%= form.text_field :title %>
+	<i class = "fa fa-tasks"></i><%= form.label :Title %>
+	<%= form.text_field :title, placeholder: "Eg. Dog Walking, pilates instructions"  %>	<br/>
+	<small> Be as concise, precise, and descriptive as possible.</small>
+	<br/>
 </div>
+<br/>
 
 <div class="text-field">
-	<%= form.label :Category %>
-	<%= form.text_field :request_category %>
-</div>
+	<i class = "fa fa-file-text-o"></i><%= form.label :description %>
+	<%= form.text_field :request_description, placeholder: "I am looking for..."   %>
+</div><small> Explain your request in detail. Members should know exactly what you need.</small>
+<br/>
+<br/>
+
+
+
 
 <div class="text-field">
-	<%= form.label :Description %>
-	<%= form.text_field :request_description %>
+	<%= image_tag('ora-coin.png', height:'20px')%> <%= form.label :Willing_to_give %>
+<%= form.number_field :token, placeholder: "Offer compensation for fulfilling this request" %>
+	<%#= form.select :token, options_for_select([
+	  ["Please choose", ""],
+	  "Unit",
+	  "Session",
+	  "Visit",
+	  "Package",
+	  "Hour"]),
+	  {}, { class: "form form-group form-control" } %>
 </div>
 
-<div class="text-field">
-	<%= form.label :Ora_Coins_Payments %>
-	<%= form.text_field :token %>
-</div>
-
-<div class="file-field">
-	<%= form.label :Photo %>
-	<%= form.file_field :photo %>
-</div>
+<br/>

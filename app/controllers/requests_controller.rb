@@ -4,7 +4,7 @@ class RequestsController < ApplicationController
 
 
 	def index
-		@requests = current_user.requests.order("created_at DESC")#.page(params[:page]) <--- Uncomment this out after we do the paginate gem
+		@requests = Request.all.order("created_at DESC").limit(25)#.page(params[:page]) <--- Uncomment this out after we do the paginate gem
 	end
 
 	def new

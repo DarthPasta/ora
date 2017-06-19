@@ -68,7 +68,9 @@ mark {
   background: #ff0;
 }
 small {
+
   font-size: 80%;
+  opacity: 0.5;
 }
 sub,
 sup {
@@ -322,6 +324,7 @@ img {
 .img-thumbnail {
   display: inline-block;
   max-width: 100%;
+  max-height: 100%;
   height: auto;
   padding: 4px;
   line-height: 1.42857143;
@@ -1690,16 +1693,15 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
-  height: 34px;
+  width: 30%;
+  height: 50px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
+
   background-color: #fff;
   background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -4959,9 +4961,7 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-footer + .panel-collapse .panel-body {
   border-bottom-color: #ddd;
 }
-.panel-primary {
-  border-color: #428bca;
-}
+
 .panel-primary > .panel-heading {
   color: #fff;
   background-color: #428bca;
