@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :offers
   has_many :requests
   has_many :engagements
+  
+  has_many :reviews
 
   mount_uploader :avatar, AvatarUploader
 

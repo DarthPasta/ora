@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   	resources :engagements
   end
 
+  resources :requests do
+    resources :engagements
+  end
+
+
   get 'braintree/new'
   post 'braintree/checkout'
 
@@ -20,5 +25,9 @@ Rails.application.routes.draw do
 
   resources :offers
   resources :requests
+
+  resources :engagements do
+    resources :reviews
+  end
 
 end
