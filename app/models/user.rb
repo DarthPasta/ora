@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :coinbase]
   has_many :offers
   has_many :requests
+
   has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
-  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'receiver_id'
   has_many :personal_messages, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
@@ -17,6 +18,10 @@ def self.new_with_session(params, session)
       user.email = data["email"] if user.email.blank?
     end
   end
+end
+
+def name
+  email.split('@')[0]
 end
 
 	def self.from_omniauth(auth)

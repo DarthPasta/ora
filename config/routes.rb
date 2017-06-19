@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   resources :offers
   resources :requests
 
-  get '/conversations' => "conversations#index"
+  resources :personal_messages, only: [:new, :create]
+  resources :conversations, only: [:index, :show]
+  resources :users, only: [:index]
 end
