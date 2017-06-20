@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   resources :users, only: [:index]
+
+  mount ActionCable.server, at: '/cable'
 end

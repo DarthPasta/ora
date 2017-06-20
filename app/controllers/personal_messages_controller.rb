@@ -7,6 +7,8 @@ class PersonalMessagesController < ApplicationController
 		@personal_message.conversation_id = @conversation.id
 		@personal_message.save!
 
+		ActionCable.server.broadcast 'room_channel', content: @personal_message.body, name: @personal_message.user.name
+
 		flash[:success] = "Your message was sent!"
 		redirect_to conversation_path(@conversation)
 	end
