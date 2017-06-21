@@ -5,12 +5,12 @@ class PersonalMessagesController < ApplicationController
 		@conversation ||= Conversation.create(author_id: current_user.id, receiver_id: @receiver.id)
 		@personal_message = current_user.personal_messages.build(personal_message_params)
 		@personal_message.conversation_id = @conversation.id
-		@personal_message.save!
+		@personal_message.save
 
 		ActionCable.server.broadcast 'room_channel', content: @personal_message.body, name: @personal_message.user.name
 
-		flash[:success] = "Your message was sent!"
-		redirect_to conversation_path(@conversation)
+		# flash[:success] = "Your message was sent!"
+		# redirect_to conversation_path(@conversation)
 	end
 
 	def new
