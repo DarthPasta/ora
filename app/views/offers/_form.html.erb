@@ -1,25 +1,54 @@
-<div class="text-field">
-	<%= form.label :Title %>
-	<%= form.text_field :title %>
-</div>
+
+
+<%= form.select :offer_category, options_for_select([
+  ["Category", ""],
+  "Art & Music",
+  "Languages",
+  "Travel",
+  "Home Improvements",
+  "Pets & Kids"]),
+  {}, { class: "form form-group form-control" } %>
 
 <div class="text-field">
-	<%= form.label :Category %>
-	<%= form.text_field :offer_category %>
+	<i class = "fa fa-tasks"></i><%= form.label :Title %>
+	<%= form.text_field :title, placeholder: "Eg. 30 minutes Virtual Tarot Reading"  %>	<br/>
+	<small> Fully describe your service in the title. Limit it to one, single service.</small>
+	<br/>
 </div>
+<br/>
 
 <div class="text-field">
-	<%= form.label :Description %>
-	<%= form.text_field :offer_description %>
-</div>
+	<i class = "fa fa-file-text-o"></i><%= form.label :description %>
+	<%= form.text_field :offer_description, placeholder: "I will..."   %>
+</div><small> Explain your service in detail. Members should know exactly what to expect from your service.</small>
+<br/>
+<br/>
+
+
+
+	<div class="text-field">
+		<%= form.label :qualifications %>
+		<%= form.text_field :offer_description, placeholder: "I am..."   %>
+	</div><small> List any certifications, degrees, or work experience.</small>
+	<br/>	<br/>
+
 
 <div class="text-field">
-	<%= form.label :Ora_Coins_Charges %>
-	<%= form.text_field :token %>
+	<%= image_tag('ora-coin.png', height:'20px')%> <%= form.label :Ora_Coins_Charges %>
+<%= form.number_field :token, placeholder: "The average member has 73 simbi in their account" %>
+	<%#= form.select :token, options_for_select([
+	  ["Please choose", ""],
+	  "Unit",
+	  "Session",
+	  "Visit",
+	  "Package",
+	  "Hour"]),
+	  {}, { class: "form form-group form-control" } %>
 </div>
+
+<br/>
 
 <div class="file-field">
 	<%= form.label :Photo %>
 	<%= form.file_field :photo %>
-</div>
-
+</div><small> If you don’t upload a picture, we’ll choose one for you — but it could take a while. <br/>Use 4:3 images (e.g. 800px x 600px) to avoid cropping.</small>

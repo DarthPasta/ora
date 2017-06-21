@@ -1,16 +1,91 @@
-<%= link_to "Home", root_path %><br>
-<%= link_to "Create a new request", new_request_path %>
-<h1>My Requests</h1>
 
+
+
+
+
+<br/>
+    <!-- Page Title
+    		============================================= -->
+    		<section id="page-title">
+
+    			<div class="container clearfix"><center>
+    				<h1>All Requests</h1>
+    				<span>Showcase of All Requests</span>
+</center>
+    			</div>
+
+    		</section><!-- #page-title end -->
+
+    		<!-- Content
+    		============================================= -->
+    		<section id="content">
+
+    			<div class="content-wrap">
+
+
+
+    					<!-- Post Content
+    					============================================= -->
+    					<div class="postcontent nobottommargin">
+
+                <!-- Sidebar
+      					============================================= -->
+
+      						<div class="sidebar-widgets-wrap">
+
+      							<div class="widget widget-filter-links clearfix">
+
+      								<h4>Select Category</h4>
+      								<ul class="custom-filter" data-container="#shop" data-active-class="active-filter">
+      									<li class="widget-filter-reset active-filter"><a href="#" data-filter="*">Clear</a></li>
+      									<li><a href="#" data-filter=".sf-dress">Art</a></li>
+      									<li><a href="#" data-filter=".sf-tshirt">Travel</a></li>
+      									<li><a href="#" data-filter=".sf-pant">HomeImprovements</a></li>
+      									<li><a href="#" data-filter=".sf-sunglass">Learning</a></li>
+      									<li><a href="#" data-filter=".sf-shoes">Language</a></li>
+      									<li><a href="#" data-filter=".sf-watch">Petandkids</a></li>
+      								</ul>
+
+<br/>
+      								<h4>Sort By</h4>
+      								<ul class="shop-sorting">
+
+      									<li><a href="#" data-sort-by="name">Name</a></li>
+      									<li><a href="#" data-sort-by="price_lh">Popularity</a></li>
+      									<li><a href="#" data-sort-by="price_hl">Latest</a></li>
+      								</ul>
+<br/>
+<a href="<%= new_request_path %> " class="btn btn-warning">Create your request</a>
+	</div>
+      					</div><!-- .sidebar end -->
+
+    						<!-- Shop
+    						============================================= -->
+    						<div id="shop" class="shop product-3 grid-container clearfix">
 <% @requests.each do |request| %>
-<%= link_to "Edit Request", edit_request_path(request) %>
-<%= link_to "Delete", request_path(request), method: :delete, data: { confirm: 'Are you sure?' } %>
-<p><%= link_to "Title : #{request.title}", request_path(request) %></p>
-<p>Ora Coins Reward : <%= request.token %> Ora Coins</p>
-<%= link_to "Coinbase", "/auth/coinbase" %>
-<p>Category : <%= request.request_category %></p>
-<p>Description : <%= request.request_description %></p>
-<p>Created at <%= time_ago_in_words(request.created_at) %> ago</p>
-<p>--------------------------------------------------------------</p>
 
-<% end %>
+    							<div class="product sf-dress clearfix">
+
+    									<!-- <div class="sale-flash"></div> -->
+
+    							<div class="product-desc-zoe center">
+    									<div class = "row"> <div class="product-title"> 	<a href= "/requests/<%=request.id%>"> <h3> <%= request.title %></h3></a> <h5><%= request.request_description %></h5> </div></div>
+    									<div class = "row">
+                        <div class="product-price"><%= request.token %> <%= image_tag('ora-coin.png', height:'20px')%> / unit <br/>
+                        <a href="/users/<%= request.user.id %>"><h5>  <%= image_tag ('seed_avatar.png'), {:class => "product-title-avatar"} %> <%= request.user.username %></h5></a>
+	</div>	</div>	</div>
+    								</div>
+
+  <% end %>
+
+    							</div>
+	                </div>
+
+
+
+
+
+
+    			</div>
+
+    		</section><!-- #content end -->

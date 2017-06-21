@@ -1,10 +1,10 @@
 class OffersController < ApplicationController
 	before_action :set_offer, only: [:show, :edit, :update, :destroy]
-	before_action :check_owner, only: [:edit, :update, :destroy]
+	before_action :check_owner, only: [:show, :edit, :update, :destroy]
 
 
 	def index
-		@offers = current_user.offers.order("created_at DESC")#.page(params[:page]) <--- Uncomment this out after we do the paginate gem
+		@offers = Offer.all.order("created_at DESC").limit(25)#.page(params[:page]) <--- Uncomment this out after we do the paginate gem
 	end
 
 	def new
@@ -15,6 +15,7 @@ class OffersController < ApplicationController
 		@offer = current_user.offers.new(offer_params)
 	    if @offer.save
 	     	 redirect_to offers_path
+
 	    else
 	      render template: "offers/new"
 	    end
@@ -37,7 +38,7 @@ class OffersController < ApplicationController
 	def destroy
 		@offer = Offer.find(params[:id])
     @offer.destroy
-    redirect_to requests_path
+    redirect_to profile_page_path(current_user.id)
 	end
 
 	private
@@ -52,7 +53,7 @@ class OffersController < ApplicationController
   end
 
 	def offer_params
-    params.require(:offer).permit(:title, :offer_description, :offer_category, :token, :description, :photo)
+    params.require(:offer).permit(:title, :offer_description, :offer_category, :token, :photo)
   end
 
 end

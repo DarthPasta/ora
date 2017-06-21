@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   	resources :engagements
   end
 
+  resources :requests do
+    resources :engagements
+  end
+
+
   get 'braintree/new'
   post 'braintree/checkout'
 
@@ -21,9 +26,15 @@ Rails.application.routes.draw do
   resources :offers
   resources :requests
 
+
   resources :personal_messages, only: [:new, :create]
   resources :conversations, only: [:index, :show]
   resources :users, only: [:index]
 
   mount ActionCable.server, at: '/cable'
+
+  resources :engagements do
+    resources :reviews
+  end
+
 end

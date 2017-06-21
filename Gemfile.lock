@@ -322,8 +322,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     rb-fsevent (0.9.8)
+
     rb-inotify (0.9.9)
       ffi (~> 1.0)
+
     rbvmomi (1.11.2)
       builder (~> 3.0)
       json (>= 1.8)
@@ -425,4 +427,6 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.13.5
+
+   1.14.6
+
